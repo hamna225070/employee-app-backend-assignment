@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Manager</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <div>
+        <p class="eyebrow">EMPLOYEE MANAGEMENT</p>
+        <h1>Employee Manager</h1>
+        <p class="subtitle">Add, view, update, and remove employee records.</p>
+      </div>
+      <button id="refreshBtn" class="secondary">Refresh list</button>
+    </header>
+
+    <section class="panel">
+      <h2 id="formTitle">Add an employee</h2>
+      <form id="employeeForm">
+        <input type="hidden" id="employeeId">
+        <div class="form-grid">
+          <label>Full name *<input id="name" required placeholder="e.g. Asha Nair"></label>
+          <label>Email *<input id="email" type="email" required placeholder="e.g. asha@example.com"></label>
+          <label>Department<input id="department" placeholder="e.g. IT"></label>
+          <label>Position<input id="position" placeholder="e.g. Developer"></label>
+          <label>Phone<input id="phone" placeholder="e.g. 9876543210"></label>
+        </div>
+        <div class="actions">
+          <button type="submit" id="saveBtn">Save employee</button>
+          <button type="button" id="cancelBtn" class="secondary hidden">Cancel edit</button>
+        </div>
+      </form>
+      <p id="message" role="status"></p>
+    </section>
+
+    <section class="panel">
+      <div class="list-heading">
+        <div><h2>Employees</h2><p class="subtitle">Records saved in MongoDB Atlas</p></div>
+        <span id="count" class="count">0 employees</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Name</th><th>Email</th><th>Department</th><th>Position</th><th>Phone</th><th>Actions</th></tr></thead>
+          <tbody id="employeeRows"><tr><td colspan="6" class="empty">Loading employees…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+    <footer>Employee Manager · Node.js + Express + MongoDB Atlas</footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
